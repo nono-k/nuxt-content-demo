@@ -2,7 +2,8 @@
 title: "2番目の投稿"
 description: "これは2番目の投稿です。"
 date: 2025-02-01
-tags: ["blog"]
+tags: 
+  - "blog"
 image: "/images/image02.jpg"
 ---
 
