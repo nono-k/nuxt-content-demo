@@ -4,6 +4,15 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: ['@nuxt/content'],
 
+  app: {
+    head: {
+      htmlAttrs: {
+        lang: 'ja',
+      },
+      title: 'Nuxt Content Demo',
+    }
+  },
+
   css: ['@/styles/styles.scss'],
   vite: {
     css: {
@@ -13,5 +22,9 @@ export default defineNuxtConfig({
         }
       }
     }
+  },
+
+  nitro: {
+    preset: 'cloudflare-pages'
   }
 });
