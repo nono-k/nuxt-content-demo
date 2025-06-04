@@ -11,5 +11,6 @@
   margin-inline: auto;
   padding-inline: 20px;
   margin-top: 60px;
+  margin-block: 80px;
 }
 </style>
