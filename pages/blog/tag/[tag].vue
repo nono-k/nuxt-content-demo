@@ -1,20 +1,22 @@
 <script setup lang="ts">
 import { parseDate } from '@/utils/parseDate';
 
-const { data: posts } = await useAsyncData('blog', () =>
+const route = useRoute();
+const { data: posts } = await useAsyncData(route.path, () =>
   queryCollection('blog')
+    .where('tags', 'LIKE', `%${route.params.tag}%`)
     .order('date', 'DESC')
     .all()
 );
 
 useSeoMeta({
-  title: 'Blog一覧 | Nuxt Content Demo',
-  description: 'Blog一覧ページです。',
+  title: `タグ「${route.params.tag}」の記事一覧 | Nuxt Content Demo`,
+  description: `タグ「${route.params.tag}」の記事一覧ページです。`,
 })
 </script>
 
 <template>
-  <h1 class="title">Blog</h1>
+  <h1 class="title">{{`「${route.params.tag}」タグ`}}</h1>
   <TagLinks />
   <ul v-if="posts" class="card__list">
     <li v-for="post in posts" :key="post.path">
